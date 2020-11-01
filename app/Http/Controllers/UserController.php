@@ -25,6 +25,7 @@ class UserController extends Controller
             $user = User::find($id);
         } else {
             $user = new User();
+            $user->api_token = Str::random(60);
         }
         $user->name = $request->input('name');
         $user->email = $request->input('email');
