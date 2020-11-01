@@ -1,4 +1,10 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/pwki4027/manage.airhacklab.be
-    - cd /home/pwki4027/manage.airhacklab.be && php artisan migrate && composer update
+    - /bin/cp -a * $DEPLOYPATH
+    - cd $DEPLOYPATH
+    - php artisan down
+    - php artisan migrate
+    - composer update
+    - php artisan cache:clear
+    - php artisan up
