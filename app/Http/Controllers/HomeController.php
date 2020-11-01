@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,6 +29,9 @@ class HomeController extends Controller
 
     public function profile()
     {
+        $user = User::find(auth()->user()->id());
+        $user->api_token = Str::random(60);
+        $user->update();
         return response()->json(auth()->user());
     }
 }
