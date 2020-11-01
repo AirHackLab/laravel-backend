@@ -30,9 +30,6 @@ class HomeController extends Controller
 
     public function profile()
     {
-        $user = User::find(auth()->user()->id);
-        $user->api_token = Str::random(60);
-        $user->update();
         return response()->json(auth()->user());
     }
 }
