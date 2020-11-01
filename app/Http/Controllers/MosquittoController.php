@@ -12,9 +12,10 @@ class MosquittoController extends Controller
         $devices = Device::all();
         $array = [];
         foreach($devices as $device) {
-            $array[] = $device->serial . ":" . $this->mosquitto_pw($device->password) . "\n";
+            $array[] = $device->serial . ":" . $this->mosquitto_pw($device->password);
         }
-        return response()->view($array);
+        return response(implode("\n", $array), 200)
+        ->header('Content-Type', 'text/plain');
     }
 
     private function mosquitto_pw($plain, $algo = 'sha256', $iterations = 901, $saltlen = 12, $keylen = 24)
