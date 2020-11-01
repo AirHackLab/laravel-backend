@@ -28,6 +28,6 @@ class HomeController extends Controller
 
     public function profile()
     {
-        return response()->json(['current_user' => auth()->user()]);
+        return response()->json(auth()->user());
     }
 }
