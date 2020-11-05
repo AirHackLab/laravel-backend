@@ -11,7 +11,7 @@ class DeviceController extends Controller
 {
     public function list(Request $request)
     {
-        $devices = Device::pagination(15);
+        $devices = Device::paginate(15);
         return response()->json($devices);
     }
 
