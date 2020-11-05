@@ -19,6 +19,7 @@ class Controller extends BaseController
 
     public function api($method, $url, $body = null)
     {
+        dd(auth()->user()->api_token);
         $this->client = new \GuzzleHttp\Client([
             // Base URI is used with relative requests
             'base_uri' => env('APP_URL') . '/api/',
