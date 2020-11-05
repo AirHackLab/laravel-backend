@@ -6,7 +6,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    {{ Form::open(array('url' => '/'.$routename)) }}
+                    <form method="POST" action="/{{$routename}}">
+                        @csrf
                         <input
                             type="hidden"
                             name="id"
@@ -29,7 +30,7 @@
                         @endforeach
 
                         <button type="submit" class="btn btn-primary">{{__('Submit')}}</button>
-                    {{ Form::close() }}
+                    </form>
                 </div>
             </div>
         </div>
