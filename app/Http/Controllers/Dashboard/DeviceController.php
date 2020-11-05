@@ -20,7 +20,7 @@ class DeviceController extends Controller
             [ 'name'    =>  'serial',   'dom'    =>  'input',    'type' => 'text' ],
             [ 'name'    =>  'password', 'dom'    =>  'input',    'type' => 'text',   'options'   =>  [ 'disabled' => true ] ],
         ];
-        return view('form', ['data' => $device, 'form' => $form]);
+        return view('form', ['data' => $device, 'routename' => 'device', 'form' => $form]);
     }
 
     public function list(Request $request)

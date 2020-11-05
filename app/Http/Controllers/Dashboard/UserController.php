@@ -21,7 +21,7 @@ class UserController extends Controller
             [ 'name'    =>  'email',    'dom'    =>  'input',   'type' => 'email' ],
             [ 'name'    =>  'password', 'dom'    =>  'input',   'type' => 'password', 'options' => [ 'hide' => true ] ],
         ];
-        return view('form', ['data' => $user, 'form' => $form]);
+        return view('form', ['data' => $user, 'routename' => 'user', 'form' => $form]);
     }
 
     public function list(Request $request)
