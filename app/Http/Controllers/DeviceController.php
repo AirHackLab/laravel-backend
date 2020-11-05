@@ -31,7 +31,7 @@ class DeviceController extends Controller
             $data['password'] = Str::random(13);
         }
         $data['serial'] = $request->input('serial');
-        $device->upsert($data);
+        $device->upsert([$data], ['id'], ['serial']);
         return response()->json($device);
     }
 
