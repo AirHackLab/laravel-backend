@@ -15,8 +15,7 @@ class UserController extends Controller
 
     public function view($id, Request $request)
     {
-        $user = is_int($id) ? $this->api('GET', 'user/'.$id) : [];
-        dd($user);
+        $user = $id != 'create' ? $this->api('GET', 'user/'.$id) : [];
         $form = [
             [ 'name'    =>  'name',     'dom'    =>  'input',   'type' => 'text' ],
             [ 'name'    =>  'email',    'dom'    =>  'input',   'type' => 'email' ],
