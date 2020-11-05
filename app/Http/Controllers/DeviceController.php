@@ -28,6 +28,7 @@ class DeviceController extends Controller
         } else {
             $device = new Device();
             $device->password = Str::random(13);
+            $device->user_id = auth()->user()->id;
         }
         $device->serial = $request->input('serial');
         $id ? $device->update() : $device->save();
