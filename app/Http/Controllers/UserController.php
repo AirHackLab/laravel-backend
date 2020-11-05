@@ -33,7 +33,7 @@ class UserController extends Controller
         if($password = $request->input('password', null)) {
             $user->password = Hash::make($password);
         }
-        $user->save();
+        $user->update();
         return response()->json($user);
     }
 
