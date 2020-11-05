@@ -22,6 +22,7 @@ class UserController extends Controller
 
     public function store(Request $request) {
         $id = $request->input('id', null);
+        $id = $id != '' ? $id : null;
         if($id) {
             $user = User::find($id);
         } else {
@@ -33,7 +34,7 @@ class UserController extends Controller
         if($password = $request->input('password', null)) {
             $user->password = Hash::make($password);
         }
-        $user->update();
+        $id ? $user->update() : $user->save();
         return response()->json($user);
     }
 
