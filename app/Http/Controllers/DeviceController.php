@@ -22,16 +22,14 @@ class DeviceController extends Controller
 
     public function store(Request $request) {
         $id = $request->input('id', null);
-        $data = [];
         if($id) {
             $device = Device::find($id);
         } else {
             $device = new Device();
-            $data['password'] = Str::random(13);
+            $device->password = Str::random(13);
         }
-        $data['id'] = $id;
-        $data['serial'] = $request->input('serial');
-        $device->upsert([$data], ['id'], ['serial']);
+        $device->serial = $request->input('serial');
+        $id ? $device->update() : $device->save();
         return response()->json($device);
     }
 
