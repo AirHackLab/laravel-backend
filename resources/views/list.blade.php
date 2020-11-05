@@ -16,6 +16,9 @@
                                         {{$column['name']}}
                                     </th>
                                 @endforeach
+                                <th>
+                                    {{ __('Actions') }}
+                                </th>
                             </tr>
                             </thead>
                             <tbody>
