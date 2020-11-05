@@ -12,7 +12,7 @@
                                 <label for="row{{$line['name']}}">{{$line['name']}}</label>
 
                                 @if ($line['dom'] == 'input')
-                                    <input type="{{$line['type']}}" class="form-control" id="row{{$line['name']}}" name="{{$line['name']}}" value="{{isset($data['id']) && $data['id'] != '' ? $data[$line['name']] : ''}}">
+                                    <input type="{{$line['type']}}" class="form-control" id="row{{$line['name']}}" name="{{$line['name']}}" value="{{(isset($data['id']) && $data['id'] != '') && $line['name'] != 'password' ? $data[$line['name']] : ''}}">
                                 @endif
                             </div>
                         @endforeach
