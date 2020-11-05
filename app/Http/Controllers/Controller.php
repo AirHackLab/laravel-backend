@@ -30,6 +30,7 @@ class Controller extends BaseController
         ]);
         $options = $body ? ['form_params' => $body] : [];
         $response = $this->client->request($method, $url, $options);
+        dd($this->client);
         return json_encode($response->getBody());
     }
 }
