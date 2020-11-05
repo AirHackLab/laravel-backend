@@ -31,7 +31,7 @@ class UserController extends Controller
             [ 'name'    =>  'name' ],
             [ 'name'    =>  'email' ],
         ];
-        return view('list', ['data' => $users->data, 'columns' => $columns]);
+        return view('list', ['data' => $users['data'], 'columns' => $columns]);
     }
 
     public function store(Request $request)
