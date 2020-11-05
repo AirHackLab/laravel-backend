@@ -30,7 +30,7 @@
                                     </td>
                                     @endforeach
                                     <td>
-                                        <a class="nav-link" href="{{ route($routename.'.view', ['id'=> $line['id']]) }}">{{ __('Edit') }}</a>
+                                        <a href="{{ route($routename.'.view', ['id'=> $line['id']]) }}">{{ __('Edit') }}</a>
                                     </td>
                                 </tr>
                             @endforeach
