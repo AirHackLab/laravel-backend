@@ -27,12 +27,11 @@ class UserController extends Controller
     public function list(Request $request)
     {
         $users = $this->api('GET', 'user');
-        dd($users);
         $columns = [
             [ 'name'    =>  'name' ],
             [ 'name'    =>  'email' ],
         ];
-        return view('list', ['data' => $users, 'columns' => $columns]);
+        return view('list', ['data' => $users->data, 'columns' => $columns]);
     }
 
     public function store(Request $request)
