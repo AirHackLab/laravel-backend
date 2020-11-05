@@ -25,7 +25,7 @@ class Controller extends BaseController
             // You can set any number of default request options.
             'timeout' => 30,
             'headers' => [
-                'api_token' => auth()->user()->api_token
+                'Authorization' => 'Bearer '.auth()->user()->api_token
             ]
         ]);
         $options = $body ? ['form_params' => $body] : [];
