@@ -17,7 +17,7 @@ class MosquittoController extends Controller
         return response(implode("\n", $array), 200)->header('Content-Type', 'text/plain');
     }
 
-    private function mosquitto_pw($plain)
+    private static function mosquitto_pw($plain)
     {
         $salt_base64="mfJ0Eq3rIDLKG33r";
         $salt=base64_decode($salt_base64);
