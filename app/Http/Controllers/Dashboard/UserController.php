@@ -19,7 +19,7 @@ class UserController extends Controller
         $form = [
             [ 'name'    =>  'name',     'dom'    =>  'input',   'type' => 'text' ],
             [ 'name'    =>  'email',    'dom'    =>  'input',   'type' => 'email' ],
-            [ 'name'    =>  'password', 'dom'    =>  'input',   'type' => 'password', 'option' => [ 'hide' => true ] ],
+            [ 'name'    =>  'password', 'dom'    =>  'input',   'type' => 'password', 'options' => [ 'hide' => true ] ],
         ];
         return view('form', ['data' => $user, 'form' => $form]);
     }
