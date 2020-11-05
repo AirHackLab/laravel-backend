@@ -27,6 +27,7 @@ class UserController extends Controller
     public function list(Request $request)
     {
         $users = $this->api('GET', 'user');
+        dd($users);
         $columns = [
             [ 'name'    =>  'name' ],
             [ 'name'    =>  'email' ],
