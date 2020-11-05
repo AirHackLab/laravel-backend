@@ -16,11 +16,11 @@ class DeviceController extends Controller
     public function view($id, Request $request)
     {
         $device = is_int($id) ? $this->api('GET', 'device/'+$id) : [];
-        $forms = [
-            [ 'name'    =>  'serial',   'method'    =>  'input-text' ],
-            [ 'name'    =>  'password', 'method'    =>  'input-text',       'options'   =>  [ 'disabled' => true ] ],
+        $form = [
+            [ 'name'    =>  'serial',   'dom'    =>  'input',    'type' => 'text' ],
+            [ 'name'    =>  'password', 'dom'    =>  'input',    'type' => 'text',   'options'   =>  [ 'disabled' => true ] ],
         ];
-        return view('form', ['data' => $device, 'form' => $forms]);
+        return view('form', ['data' => $device, 'form' => $form]);
     }
 
     public function list(Request $request)

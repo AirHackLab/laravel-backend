@@ -16,12 +16,12 @@ class UserController extends Controller
     public function view($id, Request $request)
     {
         $user = is_int($id) ? $this->api('GET', 'user/'+$id) : [];
-        $forms = [
-            [ 'name'    =>  'name',     'method'    =>  'input-text' ],
-            [ 'name'    =>  'email',    'method'    =>  'input-text' ],
-            [ 'name'    =>  'password', 'method'    =>  'input-password' ],
+        $form = [
+            [ 'name'    =>  'name',     'dom'    =>  'input',   'type' => 'text' ],
+            [ 'name'    =>  'email',    'dom'    =>  'input',   'type' => 'email' ],
+            [ 'name'    =>  'password', 'dom'    =>  'input',   'type' => 'password' ],
         ];
-        return view('form', ['data' => $user, 'form' => $forms]);
+        return view('form', ['data' => $user, 'form' => $form]);
     }
 
     public function list(Request $request)
