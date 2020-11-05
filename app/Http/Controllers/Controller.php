@@ -19,14 +19,13 @@ class Controller extends BaseController
 
     public function api($method, $url, $body = null)
     {
-        dd(auth()->user());
         $this->client = new \GuzzleHttp\Client([
             // Base URI is used with relative requests
             'base_uri' => env('APP_URL') . '/api/',
             // You can set any number of default request options.
             'timeout' => 30,
             'headers' => [
-                'api_token' => auth()->user()
+                'api_token' => auth()->user()->api_token
             ]
         ]);
         $options = $body ? ['form_params' => $body] : [];
