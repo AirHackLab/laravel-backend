@@ -38,7 +38,7 @@ class UserController extends Controller
     {
         $form = $request->all();
         $user = $this->api('POST', 'user', $form);
-        return redirect()->route('user.view', ['id' => $user->id]);
+        return redirect()->route('user.view', ['id' => $user['id']]);
     }
 
     public function delete($id, Request $request)

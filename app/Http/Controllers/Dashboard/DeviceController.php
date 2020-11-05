@@ -36,7 +36,7 @@ class DeviceController extends Controller
     {
         $form = $request->all();
         $device = $this->api('POST', 'device', $form);
-        return redirect()->route('device.view', ['id' => $device->id]);
+        return redirect()->route('device.view', ['id' => $device['id']]);
     }
 
     public function delete($id, Request $request)
