@@ -15,6 +15,10 @@ class Controller extends BaseController
 
     public function __construct()
     {
+    }
+
+    public function api($method, $url, $body = null)
+    {
         dd(auth()->user());
         $this->client = new \GuzzleHttp\Client([
             // Base URI is used with relative requests
@@ -25,11 +29,6 @@ class Controller extends BaseController
                 'api_token' => auth()->user()
             ]
         ]);
-
-    }
-
-    public function api($method, $url, $body = null)
-    {
         $options = $body ? ['form_params' => $body] : [];
         $response = $this->client->request($method, $url, $options);
         $response = $this->client->send($response);
