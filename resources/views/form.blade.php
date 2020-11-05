@@ -9,7 +9,7 @@
                     <form>
                         @foreach ($form as $line)
                             <div class="form-group">
-                                <label for="row{{$line['name']}}">{{$line['name']}}</label>
+                                <label for="row{{$line['name']}}">{{__($line['name'])}}</label>
 
                                 @if ($line['dom'] == 'input')
                                     <input
