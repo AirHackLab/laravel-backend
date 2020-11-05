@@ -25,11 +25,11 @@ class DeviceController extends Controller
         $data = [];
         if($id) {
             $device = Device::find($id);
-            $data['id'] = $id;
         } else {
             $device = new Device();
             $data['password'] = Str::random(13);
         }
+        $data['id'] = $id;
         $data['serial'] = $request->input('serial');
         $device->upsert([$data], ['id'], ['serial']);
         return response()->json($device);
