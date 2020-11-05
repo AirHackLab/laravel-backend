@@ -13,7 +13,7 @@
                             <tr>
                                 @foreach ($columns as $column)
                                     <th scope="col">
-                                        {{$column->name}}
+                                        {{$column['name']}}
                                     </th>
                                 @endforeach
                             </tr>
@@ -23,7 +23,7 @@
                                 <tr>
                                     @foreach ($columns as $column)
                                     <td>
-                                        {{$line[$column->name]}}
+                                        {{$line[$column['name']]}}
                                     </td>
                                     @endforeach
                                 </tr>
