@@ -26,6 +26,9 @@
                                         {{$line[$column['name']]}}
                                     </td>
                                     @endforeach
+                                    <td>
+                                        <a class="nav-link" href="{{ route($routename.'.view', ['id'=> $line['id']]) }}">{{ __('Edit') }}</a>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>
