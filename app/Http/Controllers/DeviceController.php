@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Device;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class DeviceController extends Controller
 {
@@ -18,15 +19,16 @@ class DeviceController extends Controller
         $device = Device::find($id);
         return response()->json($device);
     }
+
     public function store(Request $request) {
         $id = $request->input('id', null);
         if($id) {
             $device = Device::find($id);
         } else {
             $device = new Device();
+            $device->password = Str::random(13);
         }
         $device->serial = $request->input('name');
-        $device->password = $request->input('password');
         $device->save();
         return response()->json($device);
     }
