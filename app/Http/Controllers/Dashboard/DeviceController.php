@@ -29,7 +29,7 @@ class DeviceController extends Controller
         $columns = [
             [ 'name'    =>  'serial' ],
         ];
-        return view('list', ['listname' => 'Devices', 'data' => $devices['data'], 'columns' => $columns]);
+        return view('list', ['listname' => 'Devices', 'routename' => 'device', 'data' => $devices['data'], 'columns' => $columns]);
     }
 
     public function store(Request $request)
