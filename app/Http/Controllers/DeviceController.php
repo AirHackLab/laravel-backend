@@ -21,9 +21,12 @@ class DeviceController extends Controller
     }
 
     public function store(Request $request) {
+        var_dump($request->all());
         $id = $request->input('id', null);
+        $id = $id != '' ? $id : null;
         if($id) {
             $device = Device::find($id);
+            dd($device);
         } else {
             $device = new Device();
             $device->password = Str::random(13);
