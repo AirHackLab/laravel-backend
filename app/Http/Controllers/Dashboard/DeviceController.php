@@ -15,7 +15,7 @@ class DeviceController extends Controller
 
     public function view($id, Request $request)
     {
-        $device = is_int($id) ? $this->api('GET', 'device/'+$id) : [];
+        $device = is_int($id) ? $this->api('GET', 'device/'.$id) : [];
         $form = [
             [ 'name'    =>  'serial',   'dom'    =>  'input',    'type' => 'text' ],
             [ 'name'    =>  'password', 'dom'    =>  'input',    'type' => 'text',   'options'   =>  [ 'disabled' => true ] ],
@@ -41,7 +41,7 @@ class DeviceController extends Controller
 
     public function delete($id, Request $request)
     {
-        $this->api('DELETE', 'device/'+$id);
+        $this->api('DELETE', 'device/'.$id);
         return redirect()->route('device.list');
     }
 }

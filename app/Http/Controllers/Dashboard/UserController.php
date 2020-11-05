@@ -15,7 +15,7 @@ class UserController extends Controller
 
     public function view($id, Request $request)
     {
-        $user = is_int($id) ? $this->api('GET', 'user/'+$id) : [];
+        $user = is_int($id) ? $this->api('GET', 'user/'.$id) : [];
         dd($user);
         $form = [
             [ 'name'    =>  'name',     'dom'    =>  'input',   'type' => 'text' ],
@@ -44,7 +44,7 @@ class UserController extends Controller
 
     public function delete($id, Request $request)
     {
-        $this->api('DELETE', 'user/'+$id);
+        $this->api('DELETE', 'user/'.$id);
         return redirect()->route('user.list');
     }
 }
