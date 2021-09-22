@@ -29,7 +29,11 @@ class Controller extends BaseController
             ]
         ]);
         $options = $body ? ['form_params' => $body] : [];
-        $response = $this->client->request($method, $url, $options);
-        return json_decode((string)$response->getBody(), true);
+        try {
+            $response = $this->client->request($method, $url, $options);
+            return json_decode((string)$response->getBody(), true);
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            abort($e->getCode());
+        }
     }
 }
