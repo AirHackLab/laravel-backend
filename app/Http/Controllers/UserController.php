@@ -11,16 +11,22 @@ class UserController extends Controller
 {
     public function list(Request $request)
     {
+        $is_admin = auth()->user()->is_admin;
+        if(!$is_admin) abort(403);
         $users = User::paginate(15);
         return response()->json($users);
     }
 
     public function view($id, Request $request) {
+        $is_admin = auth()->user()->is_admin;
+        if(!$is_admin) abort(403);
         $user = User::find($id);
         return response()->json($user);
     }
 
     public function store(Request $request) {
+        $is_admin = auth()->user()->is_admin;
+        if(!$is_admin) abort(403);
         $id = $request->input('id', null);
         $id = $id != '' ? $id : null;
         if($id) {
@@ -39,6 +45,8 @@ class UserController extends Controller
     }
 
     public function delete($id, Request $request) {
+        $is_admin = auth()->user()->is_admin;
+        if(!$is_admin) abort(403);
         $user = User::where('id', $id)->delete();
         return response()->json(['message' => 'deleted']);
     }
