@@ -5,7 +5,8 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __($listname . ' list') }}</div>
+                    <div class="card-header d-flex justify-content-between align-items-center">{{ __($listname . ' list') }}
+                    <a href="/{{ $routename }}/create" class="btn btn-sm btn-primary">Add</a></div>
 
                     <div class="card-body">
                         <table class="table">
