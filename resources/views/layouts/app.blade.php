@@ -33,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        @if (auth()->user()->is_admin)
+                        @if (isset(auth()->user()->is_admin) and auth()->user()->is_admin)
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('user.list') }}">{{ __('Users') }}</a>
                         </li>
